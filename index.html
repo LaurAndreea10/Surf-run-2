@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Surf Run 2 — beach missions, arcade runner, surf mode, bilingual RO/EN." />
+  <title>Surf Run 2 — Beach Mission Arcade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <section class="hero panel">
+      <div>
+        <p class="eyebrow">🌊 Surf Run 2</p>
+        <h1 data-i18n="title">Beach Mission Arcade</h1>
+        <p class="lead" data-i18n="subtitle">Aleargă pe plajă, adună scoici, evită crabii și intră în apă când deblochezi placa.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="ghost" id="langBtn" type="button">EN</button>
+        <button class="ghost" id="soundBtn" type="button" aria-pressed="false">🔈</button>
+        <button class="ghost" id="motionBtn" type="button" aria-pressed="false" data-i18n="reducedMotion">Motion</button>
+      </div>
+    </section>
+
+    <section class="hud panel" aria-label="Game stats">
+      <article><span data-i18n="score">Scor</span><strong id="score">0</strong></article>
+      <article><span>XP</span><strong id="xp">0</strong></article>
+      <article><span data-i18n="coins">Scoici</span><strong id="coins">0</strong></article>
+      <article><span data-i18n="best">Record</span><strong id="best">0</strong></article>
+      <article><span data-i18n="mode">Mod</span><strong id="modeName">Story</strong></article>
+    </section>
+
+    <section class="game-wrap panel">
+      <canvas id="game" width="960" height="540" aria-label="Surf Run 2 game canvas"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="card">
+          <p class="badge" data-i18n="stage">Stage 1 · Beach</p>
+          <h2 data-i18n="menuTitle">Pregătește-te pentru valuri</h2>
+          <p data-i18n="menuText">Completează misiuni pe nisip, adună energie și evită obstacolele. La 12 scoici intri în Surf Mode.</p>
+          <div class="mode-grid" role="group" aria-label="Game modes">
+            <button class="mode active" data-mode="story" type="button">🏖️ Story</button>
+            <button class="mode" data-mode="rush" type="button">⚡ Rush</button>
+            <button class="mode" data-mode="zen" type="button">🧘 Zen</button>
+          </div>
+          <button class="primary" id="startBtn" type="button" data-i18n="start">Start joc</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="missions panel">
+      <div>
+        <p class="eyebrow" data-i18n="missions">Misiuni</p>
+        <h2 data-i18n="missionsTitle">Drumul spre apă</h2>
+      </div>
+      <ul id="missionList"></ul>
+    </section>
+
+    <section class="controls panel">
+      <button id="leftBtn" type="button" aria-label="Move left">←</button>
+      <button id="jumpBtn" type="button" aria-label="Jump">⤴</button>
+      <button id="rightBtn" type="button" aria-label="Move right">→</button>
+      <button id="pauseBtn" type="button" data-i18n="pause">Pauză</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
