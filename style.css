@@ -113,8 +113,8 @@ h2 { margin-bottom: 8px; }
 
 .primary {
   width: 100%;
-  margin-top: 14px;
-  padding: 14px 20px;
+  margin-top: 10px;
+  padding: 12px 18px;
   background: linear-gradient(135deg, var(--accent), #50d5ff);
   color: #05303d;
   box-shadow: 0 12px 35px rgba(127, 247, 231, .28);
@@ -154,40 +154,65 @@ canvas {
 
 .overlay {
   position: absolute;
-  inset: 10px;
-  display: grid;
-  place-items: center;
-  padding: 16px;
-  background: rgba(3, 18, 28, .42);
+  inset: auto 18px 18px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+  background: transparent;
   border-radius: 22px;
+  pointer-events: none;
+  z-index: 5;
 }
 
 .overlay.hidden { display: none; }
 
 .card {
-  width: min(520px, 100%);
-  padding: 22px;
-  border-radius: 26px;
-  background: rgba(2, 24, 37, .86);
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: var(--shadow);
+  width: min(460px, 100%);
+  max-height: min(72vh, 310px);
+  overflow: auto;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(2, 24, 37, .82);
+  border: 1px solid rgba(255,255,255,.22);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
+  pointer-events: auto;
+  backdrop-filter: blur(16px);
+}
+
+.card h2 {
+  margin-bottom: 5px;
+  font-size: clamp(1.05rem, 3vw, 1.55rem);
+}
+
+.card p:not(.badge) {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.35;
 }
 
 .badge {
   display: inline-flex;
-  padding: 7px 10px;
+  margin-bottom: 8px;
+  padding: 6px 9px;
   border-radius: 999px;
   color: #07323a;
   background: var(--accent2);
   font-weight: 900;
-  font-size: .8rem;
+  font-size: .72rem;
 }
 
 .mode-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 12px;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.mode {
+  padding: 9px 8px;
+  font-size: .85rem;
 }
 
 .mode.active {
@@ -247,4 +272,21 @@ canvas {
   #missionList { grid-template-columns: 1fr; }
   .controls { display: grid; }
   .app { width: min(100% - 14px, 1180px); padding-top: 8px; }
+  .overlay { inset: auto 14px 14px 14px; }
+  .card {
+    width: 100%;
+    max-height: 46vh;
+    padding: 12px;
+    border-radius: 18px;
+  }
+  .mode-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .mode { padding: 8px 6px; font-size: .78rem; }
+  .primary { padding: 11px 14px; }
+}
+
+@media (max-width: 440px) {
+  .overlay { inset: auto 10px 10px 10px; }
+  .card { max-height: 42vh; }
+  .card p:not(.badge) { display: none; }
+  .badge { margin-bottom: 6px; }
 }
